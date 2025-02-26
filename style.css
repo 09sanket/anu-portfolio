@@ -1,3 +1,15 @@
 #wrapper-canvas canvas {
     max-width: 100%;
 }
+.responsive-text {
+    width: 20%; /* Default width */
+    margin: 0 auto; /* Centers the text */
+  }
+  
+  /* Responsive styles for mobile and tablet */
+  @media screen and (max-width: 1024px) { /* Covers tablets and smaller screens */
+    .responsive-text {
+      width: 50%;
+    }
+  }
+  

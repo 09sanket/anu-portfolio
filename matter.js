@@ -211,3 +211,22 @@ function setWindowSize() {
 let m = runMatter();
 setWindowSize();
 $(window).resize(debounce(setWindowSize, 250));
+
+
+function storeData(event) {
+  event.preventDefault(); // Prevent form from refreshing the page
+
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const message = document.getElementById("message").value;
+
+  // Store in cookies (expires in 7 days)
+  document.cookie = `name=${name}; expires=${new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toUTCString()}; path=/`;
+  document.cookie = `email=${email}; expires=${new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toUTCString()}; path=/`;
+  document.cookie = `message=${message}; expires=${new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toUTCString()}; path=/`;
+
+  alert("Your data has been saved in cookies!");
+
+  // Optionally, submit form to Netlify
+  event.target.submit();
+}
